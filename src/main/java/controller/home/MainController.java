@@ -17,13 +17,7 @@ public class MainController {
 
 	@GetMapping
 	public String main(HttpSession session, Model model) {
-//		Owner owner = (Owner) session.getAttribute("login");
-		try {
-//			List<Pet> petList = petListService.selectPetList(owner.getOwnerId());
-//			model.addAttribute("petList", petList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		return "/home/main";
 	}
 
