@@ -6,21 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import interceptor.LoginCheckInterceptor;
-
 @Configuration
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer {
-	@Bean
-	public LoginCheckInterceptor loginCheckInterceptor() {
-		return new LoginCheckInterceptor();
-	}
-
 	//
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -45,11 +37,4 @@ public class MvcConfig implements WebMvcConfigurer {
 	public void addViewControllers(ViewControllerRegistry registry) {
 //		registry.addViewController("/list").setViewName("list/petList");
 	}
-
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-//		registry.addInterceptor(loginCheckInterceptor()).addPathPatterns("/main/**", "/register/**", "/list/**");
-
-	}
-
 }
