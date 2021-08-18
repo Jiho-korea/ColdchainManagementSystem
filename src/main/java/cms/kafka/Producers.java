@@ -21,6 +21,7 @@ public class Producers {
 
 	public void sendMessage(String topic, String payload) {
 		logger.info("sending payload = '{}' to topice='{}'", payload, topic);
-		ListenableFuture<SendResult<String, String>> listenable = kafkaTemplate.send(topic, payload);
+		//ListenableFuture<SendResult<String, String>> listenable = kafkaTemplate.send(topic, payload);
+		kafkaTemplate.send(topic, payload);
 	}
 }
