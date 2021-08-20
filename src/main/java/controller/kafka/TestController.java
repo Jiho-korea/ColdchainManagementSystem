@@ -8,34 +8,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import cms.kafka.Consumers;
 import lombok.RequiredArgsConstructor;
-
-import cms.kafka.Producers;
 
 @Controller
 @RequiredArgsConstructor
 public class TestController {
 
 	@Autowired
-	private Producers producers;
+	Consumers consumers;
 
-	static List<String> temperatureList = new ArrayList<String>();
-	static int num;
+	List<String> temperatureList = new ArrayList<String>();
 
 	@PostMapping("/test")
-	public String testAjax(Model model) throws Exception {
-		
-		num++;
-		temperatureList.add(Integer.toString(num));
-
+	public String testAjax(String message, Model model) throws Exception {
+		temperatureList = consumers.getList();
 		try {
-//			producers.sendMessage("ColdchainManagementSystem", "hello spring kafka!!");
-
 			model.addAttribute("temperatureList", temperatureList);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "home/temperatureHistory";
 	}
+
 }
