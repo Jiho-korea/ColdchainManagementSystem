@@ -13,14 +13,14 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TestController {
+public class AjaxController {
 
 	@Autowired
 	Consumers consumers;
 
 	List<String> temperatureList = new ArrayList<String>();
 
-	@PostMapping("/test")
+	@PostMapping("/factory1")
 	public String testAjax(String message, Model model) throws Exception {
 		temperatureList = consumers.getList();
 		try {

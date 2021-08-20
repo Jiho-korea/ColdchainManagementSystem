@@ -10,11 +10,6 @@
 }
 </style>
 <div id="temperatureHistory">
-
-	<button onclick="startInterval()">start</button>&nbsp;
-	<button onclick="stopInterval()">stop</button>
-
-	<br>
 	<c:forEach var="temperature" items="${temperatureList}"
 		varStatus="status">
 		<c:out value="${temperature }" />
