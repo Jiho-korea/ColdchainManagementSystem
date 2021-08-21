@@ -15,7 +15,6 @@ import cms.kafka.Temperature;
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequiredArgsConstructor
 public class AjaxController {
 
 	@Autowired

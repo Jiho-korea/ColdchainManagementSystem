@@ -24,7 +24,6 @@
 <title>Home</title>
 </head>
 <body id="page-top">
-	<!-- Navigation-->
 	<nav
 		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
 		id="mainNav">
@@ -51,7 +50,7 @@
 			</div>
 		</div>
 	</nav>
-	<!-- Masthead-->
+	<!-- 메인 화면 -->
 	<header class="masthead bg-primary text-white text-center">
 		<div class="container d-flex align-items-center flex-column">
 			<!-- Masthead Avatar Image-->
@@ -74,10 +73,10 @@
 				유통시키는 체계</p>
 		</div>
 	</header>
-	<!-- Portfolio Section-->
+
+	<!-- 모니터링-->
 	<section class="page-section portfolio" id="portfolio">
 		<div class="container">
-			<!-- Portfolio Section Heading-->
 			<h2
 				class="page-section-heading text-center text-uppercase text-secondary mb-0">모니터링</h2>
 			<!-- Icon Divider-->
@@ -88,9 +87,9 @@
 				</div>
 				<div class="divider-custom-line"></div>
 			</div>
-			<!-- Portfolio Grid Items-->
 			<div class="row justify-content-center">
-				<!-- Portfolio Item 1-->
+
+				<!-- 제 1 공장 -->
 				<div class="col-md-6 col-lg-4 mb-5">
 					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
 						data-bs-target="#portfolioModal1">
@@ -105,7 +104,8 @@
 							alt="..." />
 					</div>
 				</div>
-				<!-- Portfolio Item 2-->
+
+				<!-- 제 2 공장 -->
 				<div class="col-md-6 col-lg-4 mb-5">
 					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
 						data-bs-target="#portfolioModal2">
@@ -120,7 +120,8 @@
 							alt="..." />
 					</div>
 				</div>
-				<!-- Portfolio Item 3-->
+
+				<!-- 제 3 공장 -->
 				<div class="col-md-6 col-lg-4 mb-5">
 					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
 						data-bs-target="#portfolioModal3">
@@ -138,7 +139,8 @@
 			</div>
 		</div>
 	</section>
-	<!-- Contact Section-->
+
+	<!-- 온도 조절 -->
 	<section class="page-section" id="contact">
 		<div class="container">
 			<!-- Contact Section Heading-->
@@ -153,80 +155,68 @@
 				</div>
 				<div class="divider-custom-line"></div>
 			</div>
-			<!-- Contact Section Form-->
 			<div class="row justify-content-center">
-				<div class="col-lg-8 col-xl-7">
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- * * SB Forms Contact Form * *-->
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- This form is pre-integrated with SB Forms.-->
-					<!-- To make this form functional, sign up at-->
-					<!-- https://startbootstrap.com/solution/contact-forms-->
-					<!-- to get an API token!-->
-					<form id="contactForm" data-sb-form-api-token="API_TOKEN">
-						<!-- Name input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="name" type="text"
-								placeholder="Enter your name..." data-sb-validations="required" />
-							<label for="name">Full name</label>
-							<div class="invalid-feedback" data-sb-feedback="name:required">A
-								name is required.</div>
+
+				<!-- 제 1 공장 -->
+				<div class="col-md-6 col-lg-4 mb-5">
+					<label for="name">제 1 공장 기준 온도</label><br> <br>
+					<form action="${pageContext.request.contextPath}/control"
+						method="post">
+						<div class="col-md-6 col-lg-6 mb-5">
+							<input type="text" class="form-control" name="lowest"
+								placeholder="최하 온도(기본값 : 22`c)" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '최하 온도(기본값 : 22`c)'" />
 						</div>
-						<!-- Email address input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="email" type="email"
-								placeholder="name@example.com"
-								data-sb-validations="required,email" /> <label for="email">Email
-								address</label>
-							<div class="invalid-feedback" data-sb-feedback="email:required">An
-								email is required.</div>
-							<div class="invalid-feedback" data-sb-feedback="email:email">Email
-								is not valid.</div>
+						<div class="col-md-6 col-lg-6 mb-5">
+							<input type="text" class="form-control" name="highest"
+								placeholder="최고 온도(기본값 : 32`c)" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '최고 온도(기본값 : 32`c)'" />
 						</div>
-						<!-- Phone number input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="phone" type="tel"
-								placeholder="(123) 456-7890" data-sb-validations="required" />
-							<label for="phone">Phone number</label>
-							<div class="invalid-feedback" data-sb-feedback="phone:required">A
-								phone number is required.</div>
+						<button class="btn btn-primary btn-xl" type="submit">Send</button>
+					</form>
+				</div>
+
+				<!-- 제 2 공장 -->
+				<div class="col-md-6 col-lg-4 mb-5">
+					<label for="name">제 2 공장 기준 온도</label><br> <br>
+					<form action="${pageContext.request.contextPath}/control2"
+						method="post">
+						<div class="col-md-6 col-lg-6 mb-5">
+							<input type="text" class="form-control" name="lowest"
+								placeholder="최하 온도(기본값 : 22`c)" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '최하 온도(기본값 : 22`c)'" />
 						</div>
-						<!-- Message input-->
-						<div class="form-floating mb-3">
-							<textarea class="form-control" id="message"
-								placeholder="Enter your message here..." style="height: 10rem"
-								data-sb-validations="required"></textarea>
-							<label for="message">Message</label>
-							<div class="invalid-feedback" data-sb-feedback="message:required">A
-								message is required.</div>
+						<div class="col-md-6 col-lg-6 mb-5">
+							<input type="text" class="form-control" name="highest"
+								placeholder="최고 온도(기본값 : 32`c)" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '최고 온도(기본값 : 32`c)'" />
 						</div>
-						<!-- Submit success message-->
-						<!---->
-						<!-- This is what your users will see when the form-->
-						<!-- has successfully submitted-->
-						<div class="d-none" id="submitSuccessMessage">
-							<div class="text-center mb-3">
-								<div class="fw-bolder">Form submission successful!</div>
-								To activate this form, sign up at <br /> <a
-									href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-							</div>
+						<button class="btn btn-primary btn-xl" type="submit">Send</button>
+					</form>
+				</div>
+
+				<!-- 제 3 공장 -->
+				<div class="col-md-6 col-lg-4 mb-5">
+					<label for="name">제 3 공장 기준 온도</label><br> <br>
+					<form action="${pageContext.request.contextPath}/control3"
+						method="post">
+						<div class="col-md-6 col-lg-6 mb-5">
+							<input type="text" class="form-control" name="lowest"
+								placeholder="최하 온도(기본값 : 22`c)" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '최하 온도(기본값 : 22`c)'" />
 						</div>
-						<!-- Submit error message-->
-						<!---->
-						<!-- This is what your users will see when there is-->
-						<!-- an error submitting the form-->
-						<div class="d-none" id="submitErrorMessage">
-							<div class="text-center text-danger mb-3">Error sending
-								message!</div>
+						<div class="col-md-6 col-lg-6 mb-5">
+							<input type="text" class="form-control" name="highest"
+								placeholder="최고 온도(기본값 : 32`c)" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '최고 온도(기본값 : 32`c)'" />
 						</div>
-						<!-- Submit Button-->
-						<button class="btn btn-primary btn-xl disabled" id="submitButton"
-							type="submit">Send</button>
+						<button class="btn btn-primary btn-xl" type="submit">Send</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
+
 	<!-- About Section-->
 	<section class="page-section bg-primary text-white mb-0" id="about">
 		<div class="container">
@@ -472,7 +462,7 @@
 			console.log(errorThrown);
 		});
 	}
-	
+
 	function printTemperature3() {
 		$.ajax({
 			url : "${pageContext.request.contextPath}/factory3",

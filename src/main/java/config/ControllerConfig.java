@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import controller.kafka.AjaxController;
+import controller.kafka.TemperatureController;
 
 @Configuration
 public class ControllerConfig {
@@ -13,4 +14,8 @@ public class ControllerConfig {
 		return new AjaxController();
 	}
 
+	@Bean
+	public TemperatureController temperatureController() {
+		return new TemperatureController();
+	}
 }
