@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.Date"%>
-<%
-	Date date = new Date();
-%>
 <html>
 <head>
 <meta charset="utf-8" />
@@ -15,8 +11,7 @@
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
-<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
-	crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css" />
@@ -198,7 +193,7 @@
 						</div>
 						<!-- Message input-->
 						<div class="form-floating mb-3">
-							<textarea class="form-control" id="message" type="text"
+							<textarea class="form-control" id="message"
 								placeholder="Enter your message here..." style="height: 10rem"
 								data-sb-validations="required"></textarea>
 							<label for="message">Message</label>
@@ -372,11 +367,9 @@
 									<div class="divider-custom-line"></div>
 								</div>
 								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
+								<div class="fixed" id="temperatureHistoryList2">
+									<c:import url="temperatureHistory2.jsp" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -410,11 +403,9 @@
 									<div class="divider-custom-line"></div>
 								</div>
 								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
+								<div class="fixed" id="temperatureHistoryList3">
+									<c:import url="temperatureHistory3.jsp" />
+								</div>
 							</div>
 						</div>
 					</div>
@@ -436,15 +427,15 @@
 <!-- Jquery Plugins, main Jquery -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script defer type="text/javascript">
-	var interval = null;
-	
 	$(document).ready(function() {
-		interval = setInterval(printTemperature, 1000);
+		interval = setInterval(printTemperature, 999);
+		interval = setInterval(printTemperature2, 1000);
+		interval = setInterval(printTemperature3, 1001);
 	});
-	
+
 	function printTemperature() {
 		$.ajax({
-			url : "${pageContext.request.contextPath}/factory1",
+			url : "${pageContext.request.contextPath}/factory",
 			type : "post",
 			dataType : "text",
 			contentType : false,
@@ -462,14 +453,44 @@
 		});
 	}
 
-	function startInterval() {
-		interval = setInterval(printTemperature, 1000);
+	function printTemperature2() {
+		$.ajax({
+			url : "${pageContext.request.contextPath}/factory2",
+			type : "post",
+			dataType : "text",
+			contentType : false,
+			processData : false,
+			cache : false
+		}).done(function(result) {
+			var html = jQuery('<div>').html(result);
+			var contents = html.find("div#temperatureHistory2").html();
+			$("#temperatureHistoryList2").html(contents);
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			console.log("에러");
+			console.log(jqXHR);
+			console.log(textStatus);
+			console.log(errorThrown);
+		});
 	}
-
-	function stopInterval() {
-		if (interval != null) {
-			clearInterval(interval);
-		}
+	
+	function printTemperature3() {
+		$.ajax({
+			url : "${pageContext.request.contextPath}/factory3",
+			type : "post",
+			dataType : "text",
+			contentType : false,
+			processData : false,
+			cache : false
+		}).done(function(result) {
+			var html = jQuery('<div>').html(result);
+			var contents = html.find("div#temperatureHistory3").html();
+			$("#temperatureHistoryList3").html(contents);
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			console.log("에러");
+			console.log(jqXHR);
+			console.log(textStatus);
+			console.log(errorThrown);
+		});
 	}
 </script>
 </html>

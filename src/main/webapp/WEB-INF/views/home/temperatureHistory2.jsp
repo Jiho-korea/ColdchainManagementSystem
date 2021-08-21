@@ -3,18 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
-#temperatureHistory {
+#temperatureHistory2 {
 	width: 100%;
 	align-items: center;
 	display: flex;
 }
 </style>
-<div id="temperatureHistory">
+<div id="temperatureHistory2">
 	<p style="text-align:left; width: ${temperature.temperature}%"
 		data-value="${temperature.temperature }">></p>
 	<progress max="100" value="${temperature.temperature }" class="html5"> </progress>
 	
-	<c:forEach var="index" items="${outlierList}" varStatus="status">
+	<c:forEach var="index" items="${outlierList2}" varStatus="status">
 		<c:out value="${index.temperature }" /> / <c:out value="${index.date }" />
 		<br>
 	</c:forEach>
