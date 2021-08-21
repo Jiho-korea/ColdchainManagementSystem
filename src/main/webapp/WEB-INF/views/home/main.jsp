@@ -436,9 +436,9 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script defer type="text/javascript">
 	$(document).ready(function() {
-		interval = setInterval(printTemperature, 999);
-		interval = setInterval(printTemperature2, 1000);
-		interval = setInterval(printTemperature3, 1001);
+		interval = setInterval(printTemperature, 1500);
+		interval = setInterval(printTemperature2, 1500);
+		interval = setInterval(printTemperature3, 1500);
 	});
 
 	function printTemperature() {
