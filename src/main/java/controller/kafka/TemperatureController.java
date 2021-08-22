@@ -22,13 +22,13 @@ public class TemperatureController {
 	@Autowired
 	Consumers consumers;
 
-	static Integer lowest = 22;
-	static Integer lowest2 = 22;
-	static Integer lowest3 = 22;
+	static Integer lowest = 15;
+	static Integer lowest2 = 15;
+	static Integer lowest3 = 15;
 
-	static Integer highest = 32;
-	static Integer highest2 = 32;
-	static Integer highest3 = 32;
+	static Integer highest = 30;
+	static Integer highest2 = 30;
+	static Integer highest3 = 30;
 
 	static List<Temperature> outlierList = new ArrayList<Temperature>();
 	static List<Temperature> outlierList2 = new ArrayList<Temperature>();
@@ -103,8 +103,8 @@ public class TemperatureController {
 	}
 
 	@PostMapping("/control")
-	public String control(@RequestParam(value = "lowest", required = false, defaultValue = "22") Integer lowestParam,
-			@RequestParam(value = "highest", required = false, defaultValue = "32") Integer highestParam,
+	public String control(@RequestParam(value = "lowest", required = false, defaultValue = "15") Integer lowestParam,
+			@RequestParam(value = "highest", required = false, defaultValue = "30") Integer highestParam,
 			HttpSession session) throws Exception {
 		if (lowestParam != null) {
 			lowest = lowestParam;
@@ -119,8 +119,8 @@ public class TemperatureController {
 	}
 
 	@PostMapping("/control2")
-	public String control2(@RequestParam(value = "lowest", required = false, defaultValue = "22") Integer lowestParam,
-			@RequestParam(value = "highest", required = false, defaultValue = "32") Integer highestParam,
+	public String control2(@RequestParam(value = "lowest", required = false, defaultValue = "15") Integer lowestParam,
+			@RequestParam(value = "highest", required = false, defaultValue = "30") Integer highestParam,
 			HttpSession session) throws Exception {
 		if (lowestParam != null) {
 			lowest2 = lowestParam;
@@ -135,8 +135,8 @@ public class TemperatureController {
 	}
 
 	@PostMapping("/control3")
-	public String control3(@RequestParam(value = "lowest", required = false, defaultValue = "22") Integer lowestParam,
-			@RequestParam(value = "highest", required = false, defaultValue = "32") Integer highestParam,
+	public String control3(@RequestParam(value = "lowest", required = false, defaultValue = "15") Integer lowestParam,
+			@RequestParam(value = "highest", required = false, defaultValue = "30") Integer highestParam,
 			HttpSession session) throws Exception {
 		if (lowestParam != null) {
 			lowest3 = lowestParam;

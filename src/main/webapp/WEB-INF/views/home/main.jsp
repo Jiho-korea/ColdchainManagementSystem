@@ -163,19 +163,19 @@
 							test="${sessionScope.lowest != null }"> 
 							/ ${lowest } ~ ${highest }
 						</c:if> <c:if test="${sessionScope.lowest == null }"> 
-							/ 22 ~ 32
+							/ 15 ~ 30
 						</c:if>
 					</label><br> <br>
 					<form action="${pageContext.request.contextPath}/control"
 						method="post">
 						<div class="col-md-6 col-lg-6 mb-5">
 							<input type="text" class="form-control" name="lowest"
-								placeholder="최하 온도" onfocus="this.placeholder = '기본값 : 22`c'"
+								placeholder="최하 온도" onfocus="this.placeholder = '기본값 : 15`c'"
 								onblur="this.placeholder = '최하 온도'" />
 						</div>
 						<div class="col-md-6 col-lg-6 mb-5">
 							<input type="text" class="form-control" name="highest"
-								placeholder="최고 온도" onfocus="this.placeholder = '기본값 : 32`c'"
+								placeholder="최고 온도" onfocus="this.placeholder = '기본값 : 30`c'"
 								onblur="this.placeholder = '최고 온도'" />
 						</div>
 						<button class="btn btn-primary btn-xl" type="submit">Control</button>
@@ -188,19 +188,19 @@
 							test="${sessionScope.lowest2 != null }"> 
 							/ ${lowest2 } ~ ${highest2 }
 						</c:if> <c:if test="${sessionScope.lowest2 == null }"> 
-							/ 22 ~ 32
+							/ 15 ~ 30
 						</c:if>
 					</label><br> <br>
 					<form action="${pageContext.request.contextPath}/control2"
 						method="post">
 						<div class="col-md-6 col-lg-6 mb-5">
 							<input type="text" class="form-control" name="lowest"
-								placeholder="최하 온도" onfocus="this.placeholder = '기본값 : 22`c'"
+								placeholder="최하 온도" onfocus="this.placeholder = '기본값 : 15`c'"
 								onblur="this.placeholder = '최하 온도'" />
 						</div>
 						<div class="col-md-6 col-lg-6 mb-5">
 							<input type="text" class="form-control" name="highest"
-								placeholder="최고 온도" onfocus="this.placeholder = '기본값 : 32`c'"
+								placeholder="최고 온도" onfocus="this.placeholder = '기본값 : 30`c'"
 								onblur="this.placeholder = '최고 온도'" />
 						</div>
 						<button class="btn btn-primary btn-xl" type="submit">Control</button>
@@ -213,19 +213,19 @@
 							test="${sessionScope.lowest3 != null }"> 
 							/ ${lowest3 } ~ ${highest3 }
 						</c:if> <c:if test="${sessionScope.lowest3 == null }"> 
-							/ 22 ~ 32
+							/ 15 ~ 30
 						</c:if>
 					</label><br> <br>
 					<form action="${pageContext.request.contextPath}/control3"
 						method="post">
 						<div class="col-md-6 col-lg-6 mb-5">
 							<input type="text" class="form-control" name="lowest"
-								placeholder="최하 온도" onfocus="this.placeholder = '기본값 : 22`c'"
+								placeholder="최하 온도" onfocus="this.placeholder = '기본값 : 15`c'"
 								onblur="this.placeholder = '최하 온도'" />
 						</div>
 						<div class="col-md-6 col-lg-6 mb-5">
 							<input type="text" class="form-control" name="highest"
-								placeholder="최고 온도" onfocus="this.placeholder = '기본값 : 32`c'"
+								placeholder="최고 온도" onfocus="this.placeholder = '기본값 : 30`c'"
 								onblur="this.placeholder = '최고 온도'" />
 						</div>
 						<button class="btn btn-primary btn-xl" type="submit">Control</button>

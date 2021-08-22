@@ -9,9 +9,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Consumers {
 
-	private String param = "27.00";
-	private String param2 = "27.00";
-	private String param3 = "27.00";
+	private String param = "22.47";
+	private String param2 = "21.94";
+	private String param3 = "22.18";
 
 	private Double temperature;
 	private Double temperature2;
