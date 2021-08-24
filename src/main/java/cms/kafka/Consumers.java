@@ -41,9 +41,4 @@ public class Consumers {
 	public void consume2(String param2) throws Exception {
 		this.param2 = param2;
 	}
-
-	@KafkaListener(topics = "ColdchainManagementSystem3", groupId = "ColdchainManagementSystem")
-	public void consume3(String param3) throws Exception {
-		this.param3 = param3;
-	}
 }

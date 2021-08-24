@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cms.kafka.Consumers;
+import cms.kafka.Producers;
 import cms.kafka.Temperature;
 
 @Controller
@@ -21,14 +22,17 @@ public class TemperatureController {
 
 	@Autowired
 	Consumers consumers;
+	
+	@Autowired
+	Producers producers;
 
-	static Integer lowest = 15;
-	static Integer lowest2 = 15;
-	static Integer lowest3 = 15;
+	static Integer lowest = 0;
+	static Integer lowest2 = 0;
+	static Integer lowest3 = 0;
 
-	static Integer highest = 30;
-	static Integer highest2 = 30;
-	static Integer highest3 = 30;
+	static Integer highest = 50;
+	static Integer highest2 = 50;
+	static Integer highest3 = 50;
 
 	static List<Temperature> outlierList = new ArrayList<Temperature>();
 	static List<Temperature> outlierList2 = new ArrayList<Temperature>();
@@ -106,12 +110,15 @@ public class TemperatureController {
 	public String control(@RequestParam(value = "lowest", required = false, defaultValue = "15") Integer lowestParam,
 			@RequestParam(value = "highest", required = false, defaultValue = "30") Integer highestParam,
 			HttpSession session) throws Exception {
+		System.out.println(lowest);
 		if (lowestParam != null) {
 			lowest = lowestParam;
 		}
 		if (highestParam != null) {
 			highest = highestParam;
 		}
+		producers.sendMessage("Factory-Lowest", Integer.toString(lowest));
+		producers.sendMessage("Factory-Highest", Integer.toString(highest));
 		session.setAttribute("lowest", lowest);
 		session.setAttribute("highest", highest);
 
@@ -128,6 +135,8 @@ public class TemperatureController {
 		if (highestParam != null) {
 			highest2 = highestParam;
 		}
+		producers.sendMessage("Factory2-Lowest", Integer.toString(lowest2));
+		producers.sendMessage("Factory2-Highest", Integer.toString(highest2));
 		session.setAttribute("lowest2", lowest2);
 		session.setAttribute("highest2", highest2);
 
